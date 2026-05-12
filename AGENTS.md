@@ -19,5 +19,8 @@ Fraud Tinder is planned as a Vite, React, TypeScript, and Tailwind CSS v4 fronte
 
 ## Documentation
 
+- Extended project documentation lives in `docs/`; this folder is not deployed because GitHub Pages publishes only the generated `dist/` directory.
+- Read `docs/project_overview.md`, `docs/content_guidelines.md`, and `docs/tone_of_voice.md` when making product, gameplay, content, or copy changes.
+- Follow `docs/tone_of_voice.md` for all website wording and user-facing copy.
 - Keep `README.md` current when setup commands, scripts, stack choices, or gameplay behavior change.
 - Update this file when project-specific workflow expectations change.
