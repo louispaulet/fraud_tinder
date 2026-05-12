@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "American Typewriter", "Bookman Old Style", "Cooper Black",
+    Georgia, serif;
+  --font-sans: "Avenir Next", "Gill Sans", "Trebuchet MS", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  font-family: var(--font-sans);
+  background: #28352d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+[role="button"] {
+  font: inherit;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 4px solid #dba24c;
+  outline-offset: 4px;
+}
+
+.desk-grid {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(248, 241, 223, 0.12), transparent 28rem),
+    linear-gradient(rgba(248, 241, 223, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 241, 223, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, #28352d, #17251d 58%, #3a271f);
+  background-size:
+    auto,
+    42px 42px,
+    42px 42px,
+    auto;
+}
+
+.paper-card {
+  background-image:
+    radial-gradient(circle at 18% 24%, rgba(156, 61, 45, 0.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 34%, rgba(35, 68, 47, 0.09) 0 1px, transparent 2px),
+    linear-gradient(110deg, rgba(255, 255, 255, 0.42), transparent 44%),
+    linear-gradient(#f6edd8, #ead8b3);
+  background-size:
+    34px 34px,
+    28px 28px,
+    auto,
+    auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
