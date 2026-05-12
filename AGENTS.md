@@ -10,6 +10,7 @@ Fraud Tinder is planned as a Vite, React, TypeScript, and Tailwind CSS v4 fronte
 
 - Preserve user changes. Do not revert or overwrite work you did not make unless the user explicitly asks.
 - Avoid destructive git commands such as `git reset --hard` or `git checkout --` unless the user explicitly approves them.
+- Always commit and push after every change, even when working directly on `main`.
 - Prefer small, focused changes that keep the app easy to inspect and iterate on.
 - Once the frontend is scaffolded, follow the project's Vite, React, TypeScript, Tailwind, and Motion conventions.
 - Keep the swipe interface accessible. Provide button and keyboard alternatives in addition to drag gestures.
