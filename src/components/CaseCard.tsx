@@ -1,4 +1,5 @@
 import { EvidenceVisual } from "./EvidenceVisual";
+import { getScamFamily } from "../data/families";
 import type { ScamCase, Verdict } from "../types";
 
 type CaseCardProps = {
@@ -11,6 +12,8 @@ type CaseCardProps = {
 };
 
 export function CaseCard({ item, feedback }: CaseCardProps) {
+  const family = getScamFamily(item.familyId);
+
   return (
     <article className="paper-card relative overflow-hidden rounded-[2rem] border border-[#3b2f21]/20 bg-[#f6edd8] p-4 shadow-[0_25px_80px_rgba(21,19,14,0.28)] sm:p-6">
       <div className="absolute right-6 top-5 rotate-[4deg] rounded-lg border-4 border-[#9c3d2d] px-4 py-2 font-black uppercase tracking-[0.24em] text-[#9c3d2d] opacity-70">
@@ -24,9 +27,14 @@ export function CaseCard({ item, feedback }: CaseCardProps) {
           <h2 className="mt-2 font-display text-4xl font-black leading-none text-[#17251d] sm:text-5xl">
             {item.title}
           </h2>
-          <p className="mt-3 inline-flex rounded-full bg-[#223c2b] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#f8f1df]">
-            {item.type}
-          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <p className="inline-flex rounded-full bg-[#223c2b] px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-[#f8f1df]">
+              {item.type}
+            </p>
+            <p className="inline-flex rounded-full border border-[#b8652f]/35 bg-[#fff9eb] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-[#6e4b24]">
+              {family.label}
+            </p>
+          </div>
         </div>
 
         <EvidenceVisual visual={item.visual} />

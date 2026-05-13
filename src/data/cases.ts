@@ -4,7 +4,9 @@ export const cases: ScamCase[] = [
   {
     id: "case-001",
     title: "Factory Sealed Camera, 86% Below Market",
-    type: "eBay-style listing",
+    type: "Marketplace listing",
+    familyId: "marketplace-authenticity",
+    patternLabel: "Counterfeit object",
     dossier: "Marketplace Desk / Lot 43-A",
     visual: {
       kind: "listing",
@@ -22,145 +24,14 @@ export const cases: ScamCase[] = [
     ],
     correctLabel: "scam",
     explanation:
-      "The extreme discount, new seller, and off-platform payment request are classic marketplace scam signals.",
+      "The extreme discount, new seller, and off-platform payment request make this file too slippery to clear.",
   },
   {
     id: "case-002",
-    title: "Used Office Chair, Local Pickup",
-    type: "eBay-style listing",
-    dossier: "Marketplace Desk / Lot 12-C",
-    visual: {
-      kind: "listing",
-      imageLabel: "Grey ergonomic chair",
-      price: "$64.00",
-      seller: "northside-office-clearout",
-      sellerScore: "418 reviews, 99.1%",
-      shipping: "Local pickup or tracked courier",
-      badge: "Pickup available",
-    },
-    evidence: [
-      "Price is plausible for a used office chair.",
-      "Seller has a long review history.",
-      "Payment and delivery stay inside normal marketplace flows.",
-    ],
-    correctLabel: "not-scam",
-    explanation:
-      "This looks ordinary: reasonable price, normal pickup/shipping options, and a seller history that fits the item.",
-  },
-  {
-    id: "case-003",
-    title: "Municipal Refund Portal Closing Tonight",
-    type: "Article preview",
-    dossier: "Public Notice Review / Clip 09",
-    visual: {
-      kind: "article",
-      source: "Civic Ledger Daily",
-      headline: "Residents must claim surprise utility refunds before midnight",
-      subhead:
-        "A sponsored portal asks for card details to release a fictional city rebate.",
-      temperature: "urgent",
-    },
-    evidence: [
-      "Uses a tight deadline to force fast action.",
-      "Requests card details to receive a refund.",
-      "Claims government authority without a verifiable official domain.",
-    ],
-    correctLabel: "scam",
-    explanation:
-      "Refund scams often manufacture urgency and ask for sensitive payment details to 'release' money.",
-  },
-  {
-    id: "case-004",
-    title: "Independent Review of Refurbished Laptops",
-    type: "Article preview",
-    dossier: "Media Authenticity / Clip 21",
-    visual: {
-      kind: "article",
-      source: "Neighborhood Tech Notes",
-      headline: "We tested five refurbished laptops from local repair shops",
-      subhead:
-        "The piece compares warranties, battery health, and return windows without asking readers to log in.",
-      temperature: "calm",
-    },
-    evidence: [
-      "No request for credentials or payment.",
-      "Tone is informational rather than urgent.",
-      "Claims are specific and comparatively modest.",
-    ],
-    correctLabel: "not-scam",
-    explanation:
-      "Nothing here pressures the reader or requests sensitive information. It reads like normal consumer reporting.",
-  },
-  {
-    id: "case-005",
-    title: "Courier Needs a Re-Delivery Fee",
-    type: "Message screenshot",
-    dossier: "Inbox Fraud Unit / Thread 77",
-    visual: {
-      kind: "message",
-      sender: "Parcel Desk Notice",
-      channel: "SMS",
-      message:
-        "Your parcel is paused. Pay the 1.99 handling fee in 30 minutes or it returns to sender.",
-      codeWord: "tiny fee",
-    },
-    evidence: [
-      "Urgent countdown is used to rush the recipient.",
-      "Small fee lowers suspicion while harvesting payment data.",
-      "Sender is generic and not tied to a real order reference.",
-    ],
-    correctLabel: "scam",
-    explanation:
-      "Fake delivery-fee messages commonly use low amounts and short deadlines to collect card details.",
-  },
-  {
-    id: "case-006",
-    title: "Receipt for a Local Repair Deposit",
-    type: "Invoice mockup",
-    dossier: "Accounts Desk / Receipt 18",
-    visual: {
-      kind: "invoice",
-      vendor: "Moss & Finch Bike Repair",
-      amount: "$35.00",
-      due: "Paid in shop",
-      lineItems: ["Brake inspection deposit", "Receipt number BF-1042"],
-    },
-    evidence: [
-      "Small deposit matches an in-person service.",
-      "No pressure to change payment method.",
-      "Includes a clear receipt number and local context.",
-    ],
-    correctLabel: "not-scam",
-    explanation:
-      "This fictional receipt has normal business context and no unusual request for credentials or off-platform payment.",
-  },
-  {
-    id: "case-007",
-    title: "Collector Console With 'Buyer Protection Later'",
-    type: "eBay-style listing",
-    dossier: "Marketplace Desk / Lot 88-Q",
-    visual: {
-      kind: "listing",
-      imageLabel: "Retro game console bundle",
-      price: "$210.00",
-      seller: "retro-vault-direct",
-      sellerScore: "37 reviews, 91%",
-      shipping: "Message seller for private checkout discount",
-      badge: "Private checkout",
-    },
-    evidence: [
-      "Seller asks buyers to move to private checkout.",
-      "The discount is conditional on losing platform protection.",
-      "Seller score is mixed for a high-demand collectible.",
-    ],
-    correctLabel: "scam",
-    explanation:
-      "Moving the purchase outside the platform removes buyer protection and is a major red flag.",
-  },
-  {
-    id: "case-008",
     title: "Museum Store Poster Reprint",
-    type: "eBay-style listing",
+    type: "Marketplace listing",
+    familyId: "marketplace-authenticity",
+    patternLabel: "Disclosed reprint",
     dossier: "Marketplace Desk / Lot 05-B",
     visual: {
       kind: "listing",
@@ -178,6 +49,351 @@ export const cases: ScamCase[] = [
     ],
     correctLabel: "not-scam",
     explanation:
-      "A clearly disclosed reprint at a plausible price from a stable seller is not inherently suspicious.",
+      "This looks ordinary: the reprint is disclosed, the price fits, and the payment flow stays inside normal rails.",
+  },
+  {
+    id: "case-003",
+    title: "Collector Console With 'Buyer Protection Later'",
+    type: "Marketplace listing",
+    familyId: "payment-handling",
+    patternLabel: "Bait and switch checkout",
+    dossier: "Marketplace Desk / Lot 88-Q",
+    visual: {
+      kind: "listing",
+      imageLabel: "Retro game console bundle",
+      price: "$210.00",
+      seller: "retro-vault-direct",
+      sellerScore: "37 reviews, 91%",
+      shipping: "Message seller for private checkout discount",
+      badge: "Private checkout",
+    },
+    evidence: [
+      "Seller asks buyers to move to private checkout.",
+      "The discount is conditional on losing platform protection.",
+      "Seller score is mixed for a high-demand collectible.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "The private checkout discount removes buyer protection. That little shortcut deserves a red stamp.",
+  },
+  {
+    id: "case-004",
+    title: "Used Office Chair, Local Pickup",
+    type: "Marketplace listing",
+    familyId: "marketplace-authenticity",
+    patternLabel: "Ordinary used goods",
+    dossier: "Marketplace Desk / Lot 12-C",
+    visual: {
+      kind: "listing",
+      imageLabel: "Grey ergonomic chair",
+      price: "$64.00",
+      seller: "northside-office-clearout",
+      sellerScore: "418 reviews, 99.1%",
+      shipping: "Local pickup or tracked courier",
+      badge: "Pickup available",
+    },
+    evidence: [
+      "Price is plausible for a used office chair.",
+      "Seller has a long review history.",
+      "Payment and delivery stay inside normal marketplace flows.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "Reasonable price, normal pickup options, and steady seller history make this file look like routine paperwork.",
+  },
+  {
+    id: "case-005",
+    title: "Courier Needs a Re-Delivery Fee",
+    type: "Message screenshot",
+    familyId: "delivery-and-refunds",
+    patternLabel: "Fake delivery fee",
+    dossier: "Inbox Fraud Unit / Thread 77",
+    visual: {
+      kind: "message",
+      sender: "Parcel Desk Notice",
+      channel: "SMS",
+      message:
+        "Your parcel is paused. Pay the 1.99 handling fee in 30 minutes or it returns to sender.",
+      codeWord: "tiny fee",
+    },
+    evidence: [
+      "Urgent countdown is used to rush the recipient.",
+      "Small fee lowers suspicion while harvesting payment data.",
+      "Sender is generic and not tied to a real order reference.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "The tiny fee and short timer are doing the work here: they rush the reader into giving up card details.",
+  },
+  {
+    id: "case-006",
+    title: "Tracked Return Label for the Wrong Size",
+    type: "Message screenshot",
+    familyId: "delivery-and-refunds",
+    patternLabel: "Normal return flow",
+    dossier: "Inbox Fraud Unit / Thread 18",
+    visual: {
+      kind: "message",
+      sender: "Harbor Jacket Returns",
+      channel: "Email",
+      message:
+        "Your return label is ready in your order page. No extra payment is due; drop the parcel at any counter this week.",
+      codeWord: "order page",
+    },
+    evidence: [
+      "The message points back to the existing order page.",
+      "No new fee or card details are requested.",
+      "The tone gives a normal window instead of a sudden countdown.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "This looks ordinary: it sends the customer back to the order page and does not ask for fresh payment details.",
+  },
+  {
+    id: "case-007",
+    title: "Municipal Refund Portal Closing Tonight",
+    type: "Article preview",
+    familyId: "authority-and-notices",
+    patternLabel: "Fake authority refund",
+    dossier: "Public Notice Review / Clip 09",
+    visual: {
+      kind: "article",
+      source: "Civic Ledger Daily",
+      headline: "Residents must claim surprise utility refunds before midnight",
+      subhead:
+        "A sponsored portal asks for card details to release a fictional city rebate.",
+      temperature: "urgent",
+    },
+    evidence: [
+      "Uses a tight deadline to force fast action.",
+      "Requests card details to receive a refund.",
+      "Claims government authority without a verifiable official domain.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "Official language plus a midnight deadline is a stiff uniform on a shaky request for card details.",
+  },
+  {
+    id: "case-008",
+    title: "Library Card Renewal Notice",
+    type: "Article preview",
+    familyId: "authority-and-notices",
+    patternLabel: "Routine public notice",
+    dossier: "Public Notice Review / Clip 14",
+    visual: {
+      kind: "article",
+      source: "Pine Borough Library",
+      headline: "Library cards can be renewed online or at the front desk",
+      subhead:
+        "The notice lists desk hours, renewal rules, and a reminder that no payment is needed.",
+      temperature: "calm",
+    },
+    evidence: [
+      "The notice explains a routine service.",
+      "No credentials, card details, or unusual fee are requested.",
+      "The tone is informational rather than urgent.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "Nothing here pressures the reader or asks for sensitive information. The file can be cleared with a neat stamp.",
+  },
+  {
+    id: "case-009",
+    title: "New Match Needs Travel Money by Friday",
+    type: "Message screenshot",
+    familyId: "trust-and-romance",
+    patternLabel: "Love scam",
+    dossier: "Heart Desk / Thread 31",
+    visual: {
+      kind: "message",
+      sender: "Mara from HarborChat",
+      channel: "DM",
+      message:
+        "I know we only met last week, but I feel safe with you. Could you send 180 for my ticket before Friday? I will pay you back after we meet.",
+      codeWord: "fast trust",
+    },
+    evidence: [
+      "Emotional intimacy arrives very quickly.",
+      "Money is requested before any in-person meeting.",
+      "A deadline creates pressure around the favor.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "Fast affection, a deadline, and a money request before meeting make this romance file too theatrical to clear.",
+  },
+  {
+    id: "case-010",
+    title: "Coffee Date Moves to a Public Place",
+    type: "Message screenshot",
+    familyId: "trust-and-romance",
+    patternLabel: "Normal dating message",
+    dossier: "Heart Desk / Thread 09",
+    visual: {
+      kind: "message",
+      sender: "Nico from HarborChat",
+      channel: "DM",
+      message:
+        "Saturday still works for coffee. Let us meet at the bookshop cafe at 11; no worries if you want to confirm closer to then.",
+      codeWord: "public plan",
+    },
+    evidence: [
+      "The plan is for a public place.",
+      "No money, codes, or private documents are requested.",
+      "The message leaves room to verify or reschedule.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "This reads like a normal meet-up plan: public setting, low pressure, and no request for money or secrets.",
+  },
+  {
+    id: "case-011",
+    title: "Freelance Helper Asked to Pass Client Payments",
+    type: "Invoice mockup",
+    familyId: "payment-handling",
+    patternLabel: "Money laundering request",
+    dossier: "Accounts Desk / Transfer 62",
+    visual: {
+      kind: "invoice",
+      vendor: "Bright Lantern Talent Desk",
+      amount: "$2,840.00",
+      due: "Forward 90% after deposit clears",
+      lineItems: [
+        "Remote assistant trial payment",
+        "Keep 10% processing fee",
+        "Send remainder to project partner",
+      ],
+    },
+    evidence: [
+      "The work is mainly receiving and forwarding money.",
+      "The fee is unusually high for a simple transfer.",
+      "The recipient is separate from the supposed employer.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "Being paid to move someone else's money is a major warning sign. This file belongs in the suspicious tray.",
+  },
+  {
+    id: "case-012",
+    title: "Deposit Invoice for a Local Art Class",
+    type: "Invoice mockup",
+    familyId: "local-services",
+    patternLabel: "Normal class deposit",
+    dossier: "Accounts Desk / Receipt 42",
+    visual: {
+      kind: "invoice",
+      vendor: "Juniper Tile Studio",
+      amount: "$28.00",
+      due: "Paid through booking page",
+      lineItems: ["Saturday pottery deposit", "Balance due in person"],
+    },
+    evidence: [
+      "Small deposit matches the listed class.",
+      "Payment goes through the original booking page.",
+      "The remaining balance is tied to an in-person service.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "This looks ordinary: the deposit is modest, tied to a real service, and does not reroute payment.",
+  },
+  {
+    id: "case-013",
+    title: "Bike Repair Shop Changes Bank Details Mid-Job",
+    type: "Invoice mockup",
+    familyId: "local-services",
+    patternLabel: "Payment redirection",
+    dossier: "Accounts Desk / Invoice 18",
+    visual: {
+      kind: "invoice",
+      vendor: "Moss & Finch Bike Repair",
+      amount: "$315.00",
+      due: "Today by instant transfer",
+      lineItems: [
+        "Brake repair and tune-up",
+        "Ignore old invoice",
+        "Use new personal account ending 7712",
+      ],
+    },
+    evidence: [
+      "Bank details changed suddenly during the job.",
+      "Payment is requested by instant transfer to a personal account.",
+      "The invoice tells the customer to ignore the earlier record.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "A sudden payment-detail change plus instant transfer pressure is the signal. Verify by a separate channel before paying.",
+  },
+  {
+    id: "case-014",
+    title: "Independent Review of Refurbished Laptops",
+    type: "Article preview",
+    familyId: "authority-and-notices",
+    patternLabel: "Normal consumer reporting",
+    dossier: "Media Authenticity / Clip 21",
+    visual: {
+      kind: "article",
+      source: "Neighborhood Tech Notes",
+      headline: "We tested five refurbished laptops from local repair shops",
+      subhead:
+        "The piece compares warranties, battery health, and return windows without asking readers to log in.",
+      temperature: "calm",
+    },
+    evidence: [
+      "No request for credentials or payment.",
+      "Tone is informational rather than urgent.",
+      "Claims are specific and comparatively modest.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "This reads like normal consumer reporting: specific, calm, and not asking the reader to hand over anything sensitive.",
+  },
+  {
+    id: "case-015",
+    title: "Designer Bag With a Fresh Dust Bag Story",
+    type: "Marketplace listing",
+    familyId: "marketplace-authenticity",
+    patternLabel: "Counterfeit object",
+    dossier: "Marketplace Desk / Lot 71-D",
+    visual: {
+      kind: "listing",
+      imageLabel: "Designer tote",
+      price: "$88.00",
+      seller: "closet-moon-clearance",
+      sellerScore: "6 reviews",
+      shipping: "No returns, payment by transfer only",
+      badge: "Receipt missing",
+    },
+    evidence: [
+      "Price is far below the usual resale range.",
+      "Seller has little history for a high-value item.",
+      "No returns and transfer-only payment remove normal recourse.",
+    ],
+    correctLabel: "scam",
+    explanation:
+      "The low price, missing proof, and no-return transfer request make the bag story wobble on the desk.",
+  },
+  {
+    id: "case-016",
+    title: "Neighborhood Plant Swap Table",
+    type: "Marketplace listing",
+    familyId: "local-services",
+    patternLabel: "Normal community exchange",
+    dossier: "Local Desk / Notice 06",
+    visual: {
+      kind: "listing",
+      imageLabel: "Potted herb cuttings",
+      price: "$0.00",
+      seller: "green-window-club",
+      sellerScore: "Community board post",
+      shipping: "Pickup at library lobby table",
+      badge: "Free swap",
+    },
+    evidence: [
+      "The item is low value and free.",
+      "Pickup is in a public community location.",
+      "No payment, credentials, or unusual personal details are requested.",
+    ],
+    correctLabel: "not-scam",
+    explanation:
+      "This looks like ordinary community paperwork: public pickup, no payment request, and a low-risk item.",
   },
 ];

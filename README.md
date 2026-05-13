@@ -8,8 +8,9 @@ The vibe is a mix of dating-app card swipes and a bureaucratic inspection desk: 
 
 - Tinder-style draggable case cards.
 - Buttons and keyboard controls for accessible classification.
-- Synthetic eBay-style listings, article previews, SMS-like messages, and invoice mockups.
-- Score, progress, streak, and final accuracy summary.
+- Synthetic marketplace listings, article previews, message screenshots, and invoice mockups.
+- Neutral scam-family labels for pattern spotting without spoiling the ruling.
+- Score, progress, streak, final accuracy, and family-by-family endgame stats.
 - Immediate feedback after each ruling with a short explanation.
 - Responsive interface for desktop and mobile.
 - GitHub Pages deployment through `gh-pages`.

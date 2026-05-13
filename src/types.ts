@@ -1,5 +1,19 @@
 export type Verdict = "scam" | "not-scam";
 
+export type ScamFamilyId =
+  | "marketplace-authenticity"
+  | "trust-and-romance"
+  | "payment-handling"
+  | "delivery-and-refunds"
+  | "authority-and-notices"
+  | "local-services";
+
+export type ScamFamily = {
+  id: ScamFamilyId;
+  label: string;
+  description: string;
+};
+
 export type CaseVisual =
   | {
       kind: "listing";
@@ -36,6 +50,8 @@ export type ScamCase = {
   id: string;
   title: string;
   type: string;
+  familyId: ScamFamilyId;
+  patternLabel: string;
   dossier: string;
   visual: CaseVisual;
   evidence: string[];
